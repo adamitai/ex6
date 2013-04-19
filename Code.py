@@ -9,9 +9,9 @@ def dest(line):
 
 # returns the binary code of the comp mnemonic(line).
 def comp(line):
-  a = '1' if ('M' in line) else 0
+  a = '1' if ('M' in line) else '0'
   if line in compMap.keys():
-    return compMap[line]
+    return "%s%s" % (a, compMap[line])
   raise Exception("syntax error in the comp: %s command" % line)
 
 # returns the binary code of the jump mnemonic.

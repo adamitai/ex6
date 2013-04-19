@@ -1,18 +1,18 @@
-from sys import argv
 from Parser import Parser
-from Common import commandsType
 import argparse
+import SymbolTable
 
 argParser = argparse.ArgumentParser(description='nand2tetris Assembler.')
 
 argParser.add_argument('file_name', help='The .asm file to be parsed.')
 
 args = argParser.parse_args()
-print(args.file_name)
+#print(args.file_name)
 
 
 asmFileName = args.file_name
-parser = Parser(asmFileName)
+symTable = SymbolTable()
+parser = Parser(asmFileName, symTable)
 while parser.hasMoreCommands():
   parser.advance()
   print parser.parsedCommand
